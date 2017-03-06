@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <product-title v-bind:productTitle="item.CatalogEntryView[0].title"></product-title>
-          <product-images></product-images>
+          <product-images v-bind:productImages="item.CatalogEntryView[0].Images[0]"></product-images>
         </div>
         <div class="col-xs-12 col-sm-6">
           <product-price v-bind:productPrice="item.CatalogEntryView[0].Offers[0].OfferPrice[0].formattedPriceValue"></product-price>

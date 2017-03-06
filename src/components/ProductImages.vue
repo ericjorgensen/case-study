@@ -1,9 +1,20 @@
 <template>
   <div class="product-images">
-    <slick ref="slick" :options="slickOptions">
-      <a href="http://placehold.it/200x200"><img src="http://placehold.it/200x200" alt=""></a>
-      <a href="http://placehold.it/200x200"><img src="http://placehold.it/200x200" alt=""></a>
-      <a href="http://placehold.it/200x200"><img src="http://placehold.it/200x200" alt=""></a>
+    <slick ref="slick" class="product-images__main-slider" :options="mainSliderOptions">
+      <template v-for="image in productImages.PrimaryImage">
+        <img :src="image.image">
+      </template>
+      <template v-for="image in productImages.AlternateImages">
+        <img :src="image.image">
+      </template>
+    </slick>
+    <slick ref="slick" class="product-images__nav-slider" :options="navSliderOptions">
+      <template v-for="image in productImages.PrimaryImage">
+        <img :src="image.image">
+      </template>
+      <template v-for="image in productImages.AlternateImages">
+        <img :src="image.image">
+      </template>
     </slick>
   </div>
 </template>
@@ -15,8 +26,18 @@ export default {
   components: { Slick },
   data () {
     return {
-      slickOptions: {
-        slidesToShow: 1
+      mainSliderOptions: {
+        slidesToShow: 1,
+        arrows: false
+      },
+      navSliderOptions: {
+        slidesToShow: 3,
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToScroll: 1,
+        asNavFor: '.product-images__main-slider',
+        focusOnSelect: true,
+        arrows: true
       }
     }
   },
@@ -35,6 +56,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
+
+  @import "../styles/_variables.scss";
+
   /* Slider */
   .slick-slider
   {
@@ -152,5 +176,21 @@ export default {
   }
   .slick-arrow.slick-hidden {
       display: none;
+  }
+
+  // Overrides go here
+
+  .product-images__nav-slider {
+    .slick-list {
+      
+    } 
+
+    .slick-arrow {
+      
+    }
+
+    .slick-current {
+      border: solid 1px $color-gray-dark;
+    }
   }
 </style>
