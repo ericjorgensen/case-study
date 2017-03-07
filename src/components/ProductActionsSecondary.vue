@@ -1,8 +1,8 @@
 <template>
   <section class="product-actions-secondary">
-    <button>Add to Registry</button>
-    <button>Add to List</button>
-    <button>Share</button>
+    <button id="add-to-registry">Add to Registry</button>
+    <button id="add-to-list">Add to List</button>
+    <button id="share">Share</button>
   </section>
 </template>
 
@@ -30,7 +30,7 @@ export default {
     background: $color-gray-light;
     border-radius: $border-radius-standard;
     color: $color-gray-darker;
-    font-size: .5em;
+    font-size: .7em;
     text-transform: uppercase;
 
     &:first-child {
