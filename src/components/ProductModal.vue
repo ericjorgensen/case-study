@@ -50,7 +50,7 @@ export default {
   }
 
   .modal-container {
-    width: 300px;
+    width: 600px;
     margin: 0px auto;
     padding: 20px;
     background-color: #fff;
@@ -58,6 +58,10 @@ export default {
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
+
+    @media(max-width: 400px) {
+      width: 300px;
+    }
   }
 
   .modal-header h3 {

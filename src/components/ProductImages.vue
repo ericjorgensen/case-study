@@ -24,8 +24,8 @@
       <button class="product-images__nav-slider__next-arrow slick-arrow"><icon name="angle-right"></icon></button>
     </div>  
     <modal v-if="showModal" @close="showModal = false">
-      <div slot="body">
-        <button class="product-images__nav-slider__prev-arrow slick-arrow"><icon name="angle-left"></icon></button>
+      <div class="product-images__modal-slider-container" slot="body">
+        <button class="product-images__modal-slider__prev-arrow slick-arrow"><icon name="angle-left"></icon></button>
         <slick ref="slick" class="product-images__modal-slider" :options="modalSliderOptions">
           <template v-for="image in productImages.PrimaryImage">
             <img :src="image.image">
@@ -34,7 +34,7 @@
             <img :src="image.image">
           </template>
         </slick>
-        <button class="product-images__nav-slider__next-arrow slick-arrow"><icon name="angle-right"></icon></button>
+        <button class="product-images__modal-slider__next-arrow slick-arrow"><icon name="angle-right"></icon></button>
       </div>
     </modal>
   </div>
@@ -67,8 +67,8 @@ export default {
       modalSliderOptions: {
         slidesToShow: 1,
         arrows: true,
-        prevArrow: '.product-images__nav-slider__prev-arrow',
-        nextArrow: '.product-images__nav-slider__next-arrow'
+        prevArrow: '.product-images__modal-slider__prev-arrow',
+        nextArrow: '.product-images__modal-slider__next-arrow'
       },
       showModal: false
     }
@@ -117,7 +117,7 @@ export default {
     margin-bottom: 2 * $component-spacer;
   } 
 
-  .product-images__nav-slider-container {
+  .product-images__nav-slider-container, .product-images__modal-slider-container {
     display: flex;
     justify-content: center;
 
@@ -155,5 +155,9 @@ export default {
         outline: none!important;
       }
     }
+  }
+
+  .product-images__modal-slider {
+    width: 90%;
   }
 </style>

@@ -24,7 +24,7 @@ export default {
   .product-features h2 {
     text-transform: lowercase;
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: 1.75em;
   }
 
   .product-features__feature-list {

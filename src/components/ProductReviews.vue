@@ -1,6 +1,6 @@
 <template>
   <div class="product-reviews">
-    <span v-for="n in Number(productReviews.consolidatedOverallRating)" class="product-reviews__stars"><icon name="star" ></icon></span>
+    <span v-for="n in Number(productReviews.consolidatedOverallRating)" class="product-reviews__stars--red"><icon name="star" ></icon></span>
     <strong class="product-reviews__label">overall</strong> <a href="#" class="product-reviews__review-count"><strong class="product-reviews__label">view all {{ productReviews.totalReviews }} reviews</strong></a>
     <div class="product-reviews__reviews-container">
       <div class="row">
@@ -14,22 +14,39 @@
         </div>
       </div>
       <hr>
-    </div>  
-    <!-- {{ mostHelpfulNegativeReview }}
-    {{ mostHelpfulPositiveReview }} -->
+      <div class="product-reviews__review-content">
+        <div class="row">
+          <div class="col-xs-6">
+            <span v-for="n in Number(mostHelpfulPositiveReview.overallRating)" class="product-reviews__stars--red"><icon name="star" ></icon></span><span v-for="n in (5 - Number(mostHelpfulPositiveReview.overallRating))" class="product-reviews__stars"><icon name="star" ></icon></span>
+            <h4>{{ mostHelpfulPositiveReview.title }}</h4>
+            <p>{{ mostHelpfulPositiveReview.review }}</p>
+            <p><a href="#">{{ mostHelpfulPositiveReview.screenName }}</a> {{ readableDate(mostHelpfulPositiveReview.datePosted) }}</p>
+          </div>
+          <div class="col-xs-6">
+            <span v-for="n in Number(mostHelpfulNegativeReview.overallRating)" class="product-reviews__stars--red"><icon name="star" ></icon></span><span v-for="n in (5 - Number(mostHelpfulNegativeReview.overallRating))" class="product-reviews__stars"><icon name="star" ></icon></span>
+            <h4>{{ mostHelpfulNegativeReview.title }}</h4>
+            <p>{{ mostHelpfulNegativeReview.review }}</p>
+            <p><a href="#">{{ mostHelpfulNegativeReview.screenName }}</a> {{ readableDate(mostHelpfulNegativeReview.datePosted) }}</p>  
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+
+import moment from 'moment'
+
 export default {
   name: 'ProductReviews',
   props: ['productReviews'],
   computed: {
     mostHelpfulNegativeReview: function () {
-      return this.getMostHelpfulNegativeReview(this.productReviews.Reviews, 'helpfulVotes', 'neg')
+      return this.getMostHelpfulReview(this.productReviews.Reviews, 'helpfulVotes', 'neg')
     },
     mostHelpfulPositiveReview: function () {
-      return this.getMostHelpfulPositiveReview(this.productReviews.Reviews, 'helpfulVotes', 'pos')
+      return this.getMostHelpfulReview(this.productReviews.Reviews, 'helpfulVotes', 'pos')
     }
   },
   methods: {
@@ -42,6 +59,10 @@ export default {
         }
       }
       return max
+    },
+    readableDate: function (dateString) {
+      var betterDate = moment(dateString, 'ddd MMM DD HH:mm:ss zz YYYY')
+      return betterDate.format('MMMM D, YYYY')
     }
   }
 }
@@ -56,7 +77,14 @@ export default {
   }
 
   .product-reviews__stars {
+    color: $color-gray-dark;
+  }
+
+  .product-reviews__stars--red {
     color: $color-target-red;
+  }
+
+  .product-reviews__stars--red, .product-reviews__stars {
 
     .fa-icon {
       vertical-align: bottom;
@@ -90,6 +118,31 @@ export default {
     margin: $component-spacer / 4 0;
     color: $color-gray-darker;
     font-size: .6em;
+  }
+
+  .product-reviews__review-content {
+
+    .product-reviews__stars--red, .product-reviews__stars {
+      .fa-icon {
+        height: 10px;
+        width: 10px;
+      }
+    }
+
+    h4 {
+      margin: 5px 0 0 0;
+      font-weight: 800;
+      font-size: .8em;
+    }
+
+    p {
+      margin: 5px 0 10px 0;
+      font-size: .7em;
+    }
+
+    a {
+      text-decoration: none;
+    }
   }
 
 
