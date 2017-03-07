@@ -18,6 +18,10 @@ module.exports = {
       .click('.qty-increase')
       .pause(500)
       .assert.value('#product-quantity-value', "1")
+      .click('.qty-decrease')
+      .pause(100)
+      .click('.qty-decrease')
+      .assert.value('#product-quantity-value', "0")
       .end()
   }
 }
