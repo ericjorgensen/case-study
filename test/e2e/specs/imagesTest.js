@@ -2,7 +2,7 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
-  'titleTests': function (browser) {
+  'imagesTests': function (browser) {
     // automatically uses dev Server port from /config.index.js
     // default: http://localhost:8080
     // see nightwatch.conf.js
@@ -11,8 +11,7 @@ module.exports = {
     browser
       .url(devServer)
       .waitForElementVisible('#app', 2000)
-      .assert.elementPresent('.product-title')
-      .assert.containsText('h1', 'Ninja\u2122 Professional Blender with Single Serve Blending Cups')
+      .assert.elementPresent('.product-images')
       .end()
   }
 }

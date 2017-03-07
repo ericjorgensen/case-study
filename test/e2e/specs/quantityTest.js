@@ -10,7 +10,7 @@ module.exports = {
 
     browser
       .url(devServer)
-      .waitForElementVisible('#app', 5000)
+      .waitForElementVisible('#app', 2000)
       .assert.elementPresent('.product-quantity')
       .click('.qty-decrease')
       .pause(500)

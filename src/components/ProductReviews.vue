@@ -16,13 +16,13 @@
       <hr>
       <div class="product-reviews__review-content">
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-6 product-reviews__review">
             <span v-for="n in Number(mostHelpfulPositiveReview.overallRating)" class="product-reviews__stars--red"><icon name="star" ></icon></span><span v-for="n in (5 - Number(mostHelpfulPositiveReview.overallRating))" class="product-reviews__stars"><icon name="star" ></icon></span>
             <h4>{{ mostHelpfulPositiveReview.title }}</h4>
             <p>{{ mostHelpfulPositiveReview.review }}</p>
             <p><a href="#">{{ mostHelpfulPositiveReview.screenName }}</a> {{ readableDate(mostHelpfulPositiveReview.datePosted) }}</p>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-6 product-reviews__review">
             <span v-for="n in Number(mostHelpfulNegativeReview.overallRating)" class="product-reviews__stars--red"><icon name="star" ></icon></span><span v-for="n in (5 - Number(mostHelpfulNegativeReview.overallRating))" class="product-reviews__stars"><icon name="star" ></icon></span>
             <h4>{{ mostHelpfulNegativeReview.title }}</h4>
             <p>{{ mostHelpfulNegativeReview.review }}</p>
