@@ -142,6 +142,10 @@ export default {
     flex-basis: auto;
     width: 60%;
 
+    @media(min-width: 960px) {
+      width: 40%;
+    }
+
 
     .slick-current {
       border: solid 1px $color-gray-dark;

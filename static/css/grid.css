@@ -223,13 +223,13 @@
 @media (min-width: 992px) {
   .container {
     width: 970px;
-    max-width: 680px;
+    max-width: 768px;
   }
 }
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
-    max-width: 680px;
+    max-width: 960px;
   }
 }
 .container-fluid {

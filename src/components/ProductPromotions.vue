@@ -32,7 +32,11 @@ export default {
     padding: 12px 0;
     border-top: solid 1px $color-gray-medium;
     border-bottom: solid 1px $color-gray-medium;
-    font-size: .7em;
+    font-size: .8em;
+
+    @media(min-width: 768px) {
+      font-size: 1em;
+    }
   }
 
 </style>

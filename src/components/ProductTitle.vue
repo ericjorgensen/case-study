@@ -21,5 +21,9 @@ export default {
     text-align: center;
     font-size: 1em;
     font-weight: 100;
+
+    @media(min-width: 768px) {
+      font-size: 1.5em;
+    }
   }
 </style>

@@ -2,7 +2,7 @@
   <div class="product-actions-primary">
     <div class="product-actions-primary__pick-up-in-store-container" v-if="purchasingChannelCode === '0' || purchasingChannelCode === '2'">
       <button class="product-actions-primary__pick-up-in-store-button">Pick up in store</button>
-      <p class="product-actions-primary__pick-up-in-store-label">Find in a store</p>
+      <p class="hidden-xs product-actions-primary__pick-up-in-store-label">Find in a store</p>
     </div>
     <div class="product-actions-primary__add-to-cart-container" v-if="purchasingChannelCode === '0' || purchasingChannelCode === '1'">
       <button class="product-actions-primary__add-to-cart-button">Add to Cart</button>
@@ -23,6 +23,10 @@ export default {
 
   .product-actions-primary {
     display: flex;
+
+    @media(max-width: 767px) {
+      margin-bottom: $component-spacer;
+    }
   }
 
   .product-actions-primary__pick-up-in-store-container, .product-actions-primary__add-to-cart-container {
@@ -38,7 +42,7 @@ export default {
     button {
       padding: 7px 0;
       width: 100%;
-      font-size: .8em;
+      font-size: 1em;
       text-transform: uppercase;
       color: #fff;
       font-weight: 300;
