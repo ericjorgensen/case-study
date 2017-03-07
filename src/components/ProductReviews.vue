@@ -15,8 +15,8 @@
       </div>
       <hr>
     </div>  
-    {{ mostHelpfulNegativeReview }}
-    {{ mostHelpfulPositiveReview }}
+    <!-- {{ mostHelpfulNegativeReview }}
+    {{ mostHelpfulPositiveReview }} -->
   </div>
 </template>
 
