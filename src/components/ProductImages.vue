@@ -8,22 +8,44 @@
         <img :src="image.image">
       </template>
     </slick>
-    <slick ref="slick" class="product-images__nav-slider" :options="navSliderOptions">
-      <template v-for="image in productImages.PrimaryImage">
-        <img :src="image.image">
-      </template>
-      <template v-for="image in productImages.AlternateImages">
-        <img :src="image.image">
-      </template>
-    </slick>
+    <button class="product-images__enlarge-image" @click="showModal = true">
+      <icon name="search-plus"></icon> <span class="product-images__enlarge-image-text">view larger</span>
+    </button>  
+    <div class="product-images__nav-slider-container">
+      <button class="product-images__nav-slider__prev-arrow slick-arrow"><icon name="angle-left"></icon></button>
+      <slick ref="slick" class="product-images__nav-slider" :options="navSliderOptions">
+        <template v-for="image in productImages.PrimaryImage">
+          <img :src="image.image" :height="50" :width="50">
+        </template>
+        <template v-for="image in productImages.AlternateImages">
+          <img :src="image.image" :height="50" :width="50">
+        </template>
+      </slick>
+      <button class="product-images__nav-slider__next-arrow slick-arrow"><icon name="angle-right"></icon></button>
+    </div>  
+    <modal v-if="showModal" @close="showModal = false">
+      <div slot="body">
+        <button class="product-images__nav-slider__prev-arrow slick-arrow"><icon name="angle-left"></icon></button>
+        <slick ref="slick" class="product-images__modal-slider" :options="modalSliderOptions">
+          <template v-for="image in productImages.PrimaryImage">
+            <img :src="image.image">
+          </template>
+          <template v-for="image in productImages.AlternateImages">
+            <img :src="image.image">
+          </template>
+        </slick>
+        <button class="product-images__nav-slider__next-arrow slick-arrow"><icon name="angle-right"></icon></button>
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
+import Modal from './ProductModal'
 import Slick from 'vue-slick'
 
 export default {
-  components: { Slick },
+  components: { Slick, Modal },
   data () {
     return {
       mainSliderOptions: {
@@ -37,8 +59,18 @@ export default {
         slidesToScroll: 1,
         asNavFor: '.product-images__main-slider',
         focusOnSelect: true,
-        arrows: true
-      }
+        arrows: true,
+        variableWidth: true,
+        prevArrow: '.product-images__nav-slider__prev-arrow',
+        nextArrow: '.product-images__nav-slider__next-arrow'
+      },
+      modalSliderOptions: {
+        slidesToShow: 1,
+        arrows: true,
+        prevArrow: '.product-images__nav-slider__prev-arrow',
+        nextArrow: '.product-images__nav-slider__next-arrow'
+      },
+      showModal: false
     }
   },
   name: 'ProductImages',
@@ -58,139 +90,70 @@ export default {
 <style lang="scss">
 
   @import "../styles/_variables.scss";
+  @import "../styles/_slick.scss";
 
-  /* Slider */
-  .slick-slider
-  {
-      position: relative;
+  .product-images__enlarge-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto $component-spacer auto;
+    background: transparent;
+    color: $color-gray-dark;
 
-      display: block;
-      box-sizing: border-box;
-
-      -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
-
-      -webkit-touch-callout: none;
-      -khtml-user-select: none;
-      -ms-touch-action: pan-y;
-          touch-action: pan-y;
-      -webkit-tap-highlight-color: transparent;
-
+    .fa-icon {
+      margin-right: 5px;
+      height: 24px;
+      width: 24px;
+    }
   }
 
-  .slick-list
-  {
-      position: relative;
-
-      display: block;
-      overflow: hidden;
-
-      margin: 0;
-      padding: 0;
-  }
-  .slick-list:focus
-  {
-      outline: none;
-  }
-  .slick-list.dragging
-  {
-      cursor: pointer;
-      cursor: hand;
-  }
-
-  .slick-slider .slick-track,
-  .slick-slider .slick-list
-  {
-      -webkit-transform: translate3d(0, 0, 0);
-         -moz-transform: translate3d(0, 0, 0);
-          -ms-transform: translate3d(0, 0, 0);
-           -o-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0);
-  }
-
-  .slick-track
-  {
-      position: relative;
-      top: 0;
-      left: 0;
-
-      display: block;
-  }
-  .slick-track:before,
-  .slick-track:after
-  {
-      display: table;
-
-      content: '';
-  }
-  .slick-track:after
-  {
-      clear: both;
-  }
-  .slick-loading .slick-track
-  {
-      visibility: hidden;
-  }
-
-  .slick-slide
-  {
-      display: none;
-      float: left;
-
-      height: 100%;
-      min-height: 1px;
-  }
-  [dir='rtl'] .slick-slide
-  {
-      float: right;
-  }
-  .slick-slide img
-  {
-      display: block;
-  }
-  .slick-slide.slick-loading img
-  {
-      display: none;
-  }
-  .slick-slide.dragging img
-  {
-      pointer-events: none;
-  }
-  .slick-initialized .slick-slide
-  {
-      display: block;
-  }
-  .slick-loading .slick-slide
-  {
-      visibility: hidden;
-  }
-  .slick-vertical .slick-slide
-  {
-      display: block;
-
-      height: auto;
-
-      border: 1px solid transparent;
-  }
-  .slick-arrow.slick-hidden {
-      display: none;
+  .product-images__enlarge-image-text {
+    
   }
 
   // Overrides go here
 
-  .product-images__nav-slider {
-    .slick-list {
-      
-    } 
+  .product-images__main-slider {
+    margin-bottom: 2 * $component-spacer;
+  } 
+
+  .product-images__nav-slider-container {
+    display: flex;
+    justify-content: center;
 
     .slick-arrow {
-      
+      color: $color-gray-medium;
+      background: transparent;
+
+      &:focus, &:active {
+        border: none;
+        outline: none;
+      }
+
+      .fa-icon {
+        width: 30px;
+        height: 30px;
+      }
     }
+
+  }
+
+  .product-images__nav-slider {
+    flex-basis: auto;
+    width: 60%;
+
 
     .slick-current {
       border: solid 1px $color-gray-dark;
+      border-radius: $border-radius-standard;
+    }
+
+    .slick-slide {
+      margin: 0 5px;
+
+      &:focus, &:active {
+        outline: none!important;
+      }
     }
   }
 </style>

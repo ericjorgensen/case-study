@@ -78,6 +78,7 @@
     "vue-slick": "^1.1.0",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.2.1",
+    "vue-zoombox": "^1.0.2",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",

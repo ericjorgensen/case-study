@@ -16,6 +16,14 @@ export default {
 
 @import "../styles/_variables.scss";
 
+.product-price {
+  margin-top: $component-spacer / 2;
+
+  @media(min-width: 768px) {
+    margin-top: 0;
+  }
+}
+
 strong {
   font-size: 1.2em;
 }
