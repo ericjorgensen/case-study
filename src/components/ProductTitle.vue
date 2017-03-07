@@ -1,7 +1,7 @@
 <template>
-  <div class="product-title">
+  <section class="product-title">
     <h1>{{ productTitle }}</h1>
-  </div>
+  </section>
 </template>
 
 <script>

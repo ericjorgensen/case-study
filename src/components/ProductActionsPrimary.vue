@@ -1,5 +1,5 @@
 <template>
-  <div class="product-actions-primary">
+  <section class="product-actions-primary">
     <div class="product-actions-primary__pick-up-in-store-container" v-if="purchasingChannelCode === '0' || purchasingChannelCode === '2'">
       <button class="product-actions-primary__pick-up-in-store-button">Pick up in store</button>
       <p class="hidden-xs product-actions-primary__pick-up-in-store-label">Find in a store</p>
@@ -7,7 +7,7 @@
     <div class="product-actions-primary__add-to-cart-container" v-if="purchasingChannelCode === '0' || purchasingChannelCode === '1'">
       <button class="product-actions-primary__add-to-cart-button">Add to Cart</button>
     </div>  
-  </div>
+  </section>
 </template>
 
 <script>

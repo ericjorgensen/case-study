@@ -1,12 +1,12 @@
 <template>
-  <div class="product-promotions">
+  <section class="product-promotions">
     <ul class="fa">
       <li v-for="promotion in productPromotions">
         <icon name="tag"></icon>
         {{ promotion.Description[0].shortDescription }}
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>

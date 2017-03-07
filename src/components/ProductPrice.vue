@@ -1,7 +1,7 @@
 <template>
-  <div class="product-price">
+  <section class="product-price">
     <strong>{{ productPrice }}</strong> <span class="product-price__description">Online Price</span>
-  </div>
+  </section>
 </template>
 
 <script>

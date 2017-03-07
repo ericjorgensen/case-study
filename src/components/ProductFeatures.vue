@@ -1,5 +1,5 @@
 <template>
-  <div class="product-features">
+  <section class="product-features">
     <h2>Product Highlights</h2>
     <ul class="product-features__feature-list">
       <li v-for="feature in productFeatures">
@@ -7,7 +7,7 @@
         <span v-html="feature"></span>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>

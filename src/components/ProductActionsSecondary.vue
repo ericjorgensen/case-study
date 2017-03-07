@@ -1,9 +1,9 @@
 <template>
-  <div class="product-actions-secondary">
+  <section class="product-actions-secondary">
     <button>Add to Registry</button>
     <button>Add to List</button>
     <button>Share</button>
-  </div>
+  </section>
 </template>
 
 <script>

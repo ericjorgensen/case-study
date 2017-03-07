@@ -1,8 +1,8 @@
 <template>
-  <div class="product-quantity">
+  <section class="product-quantity">
     <span class="product-quantity__quantity-label">Quantity:</span>
-    <button class="qty-decrease" v-on:click="decreaseQuantity"><icon name="minus-circle"></icon></button> <input type="text" v-model="productQuantityValue"> <button class="qty-increase" v-on:click="increaseQuantity"><icon name="plus-circle"></icon></button>
-  </div>
+    <button class="qty-decrease" v-on:click="decreaseQuantity"><icon name="minus-circle"></icon></button> <input id="product-quantity-value" type="text" v-model="productQuantityValue"> <button class="qty-increase" v-on:click="increaseQuantity"><icon name="plus-circle"></icon></button>
+  </section>
 </template>
 
 <script>

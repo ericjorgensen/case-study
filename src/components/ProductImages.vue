@@ -1,5 +1,5 @@
 <template>
-  <div class="product-images">
+  <section class="product-images">
     <slick ref="slick" class="product-images__main-slider" :options="mainSliderOptions">
       <template v-for="image in productImages.PrimaryImage">
         <img :src="image.image">
@@ -37,7 +37,7 @@
         <button class="product-images__modal-slider__next-arrow slick-arrow"><icon name="angle-right"></icon></button>
       </div>
     </modal>
-  </div>
+  </section>
 </template>
 
 <script>

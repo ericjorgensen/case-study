@@ -1,5 +1,5 @@
 <template>
-  <div class="product-reviews">
+  <section class="product-reviews">
     <span v-for="n in Number(productReviews.consolidatedOverallRating)" class="product-reviews__stars--red"><icon name="star" ></icon></span>
     <strong class="product-reviews__label">overall</strong> <a href="#" class="product-reviews__review-count"><strong class="product-reviews__label">view all {{ productReviews.totalReviews }} reviews</strong></a>
     <div class="product-reviews__reviews-container">
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
