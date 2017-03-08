@@ -19,7 +19,7 @@ export default {
     margin-top: 0;
     margin-bottom: $component-spacer;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.25m;
     font-weight: 100;
 
     @media(min-width: 768px) {

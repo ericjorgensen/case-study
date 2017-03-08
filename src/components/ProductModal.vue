@@ -50,14 +50,14 @@ export default {
   .modal-container {
     width: 600px;
     margin: 0px auto;
-    padding: 20px;
+    padding: 10px 0;
     background-color: #fff;
     border-radius: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
 
-    @media(max-width: 400px) {
+    @media(max-width: 500px) {
       width: 300px;
     }
   }

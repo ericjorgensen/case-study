@@ -161,7 +161,11 @@ export default {
     }
   }
 
+  .product-images__modal-slider-container {
+    justify-content: space-between;
+  }
+
   .product-images__modal-slider {
-    width: 90%;
+    width: 80%;
   }
 </style>
